@@ -1,0 +1,32 @@
+You are a SOC analyst in Commensurate Technology. Your boss regularly asks you questions about different hosts in your fleet. This is a tedious job since the company has a number of different systems running. With multiple systems, you need to memorize different methods for gathering information.
+
+You heard about osquery, which provides a universal interface for querying information from a host. Osquery exposes the host's system information as a relational database. The queries use SQL syntax. Elastic Stack has an integration called Osquery Manager, which takes care of deploying this to your fleet. Through this integration, you can run live queries for specific questions or create queries that are periodically run against systems. This may be helpful for monitoring your fleet to detect anomalies in settings against known good states.
+
+Osquery is an operating system agnostic tool (supports Windows, macOS, CentOS, FreeBSD, Linux) for querying information about the system. It exposes the system information as a relational database in SQLite syntax. Elastic Stack has an integration called Osquery Manager that facilitates deploying it to your Agents in your Fleet and either running queries on them manually or scheduling them to take place periodically.
+
+Osquery Manager Integration
+
+With this integration, you can centrally manage osquery deployments to Elastic Agents in your Fleet and query host data through distributed SQL.
+
+Add this integration to:
+
+Deploy osqueryd (the host monitoring daemon) to agents in a policy
+Schedule queries to capture OS state changes over time
+Run live queries against one or more agents or policies
+View a history of past queries and their results
+Osquery results are stored in Elasticsearch, so that you can use the power of the stack to search, analyze, and visualize osquery data. Once added, a new Management > Osquery page is available in Kibana.
+
+In this objective, you are going to access Kibana and deploy osquery to your Agents.
+Before you can deploy osquery to your hosts, you need to access Kibana.
+
+Open the browser and navigate to https://elastic.lab.
+
+Navigate to Management -> Fleet -> Integrations. Search for osquery.
+In this case, we are interested in getting system information from the Agents, not osquery-specific logs. Therefore, click on the Osquery Manager. Click on the Add Osquery Manager to deploy it to your agents. The Add Osquery Manager integration page opens up. This page walks you through the process of adding integration to an agent policy.
+
+Next, you are going to deploy the osquery to your elastic host.
+
+Navigate to Management -> Fleet -> Integrations -> Installed integrations -> Osquery Manager -> Policies.
+Click on the Add Osquery Manager button. The Add Osquery Manager integration page shows up. Select the Default Fleet Server policy. Fill up the rest of the configuration as you wish, but leave the advanced options as it is.
+
+Live queries allow you to run a query against one or more agents or policies. Results are returned after the query completes. In this objective, you will experiment with this feature. First, you will walk through making a simple query and then independently complete some queries to answer specific questions.
