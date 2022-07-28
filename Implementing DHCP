@@ -1,0 +1,7 @@
+Objective: Understand what DHCP is used for and hot it can be managed by a server.
+
+Mission: Install and configure DHCP services on a Windows Server in a domain environment.
+
+Environment & Tools: VirtualBox - Server1 (DC) Windows Server 2016 and Windows 7 Client.
+
+Installed DHCP role on Server1 by accessing "Add Roles and Features" function on Server1 Server Manager Dashboard. Selected Role-based or feature-based installation to Server1 while assigning DHCP Server and File and Storage Services server roles. Only 1 feature was required for this instance, .NET Framework 4.6 Features. Authorized DHCP configuration and specified administrator credentials before committing. Accessed Tools>DHCP>right-clicked IPv4>New Scope. Assigned name of Cyber Scope, configured IP start and end range, and Subnet mask. In addition to the initial setup, I added a range of IP addresses to exclude from DHCP allocation and lease duration for dynamically assigned IP addresses.
