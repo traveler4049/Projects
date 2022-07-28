@@ -1,0 +1,15 @@
+Objective: understand the importance of documentation and using skills acquired during the course to solve a challenge. Additionally, there are multiple ways of achieving the same goal when it comes to hacking.
+Mission: Investigate Jessica’s system (Metasploitable Box) and exploit it to get root permission access.
+
+Resources:
+Environment & Tools: VirtualBox - Kali Linux, Metasploitable, pfSense
+Files: CrackMeIfYouCan.rar, Metasploitable.rar
+
+
+*Environment Setup
+VirtualBox
+  Metasploitable
+    Ubuntu 64-bit
+    
+  pfSense
+    
