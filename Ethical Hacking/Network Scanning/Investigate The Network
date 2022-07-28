@@ -1,0 +1,66 @@
+Objective: This lab will expand learners’ familiarity with network scanning as a means of investigation.
+Mission: Use scanning techniques on the network to find the target on the vulnerable machine using Nmap commands. See how scans look on a network analyzer in Wireshark.
+
+
+Resources:
+Environment & Tools: VirtualBox - Kali Linux, Metasploitable, pfSense, Wireshark
+Files: Environment.OVA
+
+
+
+*Environment Setup
+
+Using VirtualBox:
+
+File>Import Appliance
+  Imported using Advanced Mode
+    Selected local file system location and set Mac Address Policy to "Generate New MAC addresses for all network adapters"
+    
+Powered on pfSense VM
+  Started pfSense first since it will be providing DHCP services to the other two VM's in this lab
+  Subnet being provided to internal network is 192.168.1.0/24
+      Ran into an issue with the IP range since home router was using default 192.168.1.0.
+        Through pfSense VM interface, selected option 2 (LAN), changed IP to 10.0.0.1/24
+  
+  Network Adapter Configurations
+    pfSense:
+      Adapter 1: Bridged
+      Adapter 2: Internal network: PFSense Network
+    
+    Kali Linux (named kalik):
+      Adapter 1: Internal network: PFSense Network
+    
+    Metasploitable
+      Adapater 1: Internal network: PFSense Network
+   
+   
+   Started the kalik and Metasploitable VMs
+    Open terminal in kalik and Metasploitable (running command ifconfig) to make sure they were assigned proper IP addresses. Documented the IP's
+      From kalik machine, pinged the IP address of Metasploitable VM to verify connectivity between the two machines
+      
+
+Using kalik VM (can use -A to pull multiple pieces of information that were individually done in this instance)
+  opened terminal to conduct network scan with a ping sweep
+    (as root user) nmap -sP 10.0.0.1/24
+      was able to locate target
+        (as root user) nmap -sS 10.0.0.3
+          Noted open ports
+            (as root user) nmap -sV 10.0.0.3
+              reviewed service/versions
+                (as root user) nmap -O 10.0.0.3
+                  identified OS
+                    (as root user) nmap -p80 10.0.0.3
+                    
+                      Navigated to /usr/share/nmap/scripts
+                        Located ftp-vsftp-backdoor.nse script
+                          (as root user in /usr/share/nmap/scripts directory) nmap -script ftp-vsftp-backdoor.nse 10.0.0.3
+                          
+                          
+                          
+Opened Wireshark from terminal to monitor network traffic
+  Peformed service/version scan with nmap of the Metasploitable machine
+    Examined the traffic in Wireshark, narrowed using filter: tcp.flags.syn==1 && ip.src==10.0.0.3
+      TCP Flags: [SYN, ACK]
+      TCP Ports: Src Port: 53 / Dst Port: 44803
+    
+   
