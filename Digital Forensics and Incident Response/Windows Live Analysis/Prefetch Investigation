@@ -1,0 +1,17 @@
+Objectives: Learn how to identify previously executed programs on the machine, even after their removal.
+Mission: Perform an installation and uninstallation of software to investigate the evidence of its existence.
+
+Resources:
+Environment & Tools: VirtualBox - Windows 10
+Files: AnyDesk.exe, Winprefetchview.zip
+
+
+
+*Identify evidence that a deleted program was previously executed on the computer.
+
+Deployed Windows 10 VM
+  Installed Anydesk.exe file
+  Uninstalled Anydesk.exe file
+  Looked for evidence of prefetch files in the system by navigating to C:\windows\Prefetch
+  Used WinPrefetchView software to investigate the AnyDesk install and any additional usage (no additional usage found as it was a clean install and uninstall)
+  
