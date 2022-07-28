@@ -1,0 +1,9 @@
+Objective: Understand the preparations needed for the creation of a working domain environment.
+
+Mission: Promote GUI and non-GUI Windows Servers to domain controllers and add clients.
+
+Environment & Tools: Windows Server 2016, Windows 7, and Windows 10.
+
+Configured Server Manager by modifying Server Roles and installing Active Directory Domain Services features. Promoted Server1 to a domain controller, added a new forest and designated root domain name, and selected Forest and Domain function level as Windows Server 2016. Domain controller capabilities assigned were Domain Name System (DNS) Server and Global Catalog (GC) and created password. 
+
+Added clients to the domain by configuring Windows 7 and Windows 10 VM's created in "Windows Server Installation" project. Configuration for Windows 7 and Windows 10 VM's involved assigning client name, IP address, subnet mask, and DNS.
