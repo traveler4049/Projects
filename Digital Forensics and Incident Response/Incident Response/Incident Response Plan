@@ -1,0 +1,59 @@
+Objective: Acquire significant experience working with incident response plans, and understand the importance of having a plan that outlines actions to be taken during an incident.
+Mission: Practice how to create an incident response plan for an alert.
+
+
+
+
+
+
+
+*Write an incident response plan that includes the first four phases:
+• Preparation
+• Identification
+• Containment
+• Eradication
+
+An employee receives a malicious email with malware.
+Preparation
+- Train employees not to open emails from sources they do not recognize.
+- Create a blacklist of malicious senders and block them.
+- Create a whitelist of file extensions that are permitted to be received.
+Identification
+- Create a dashboard that shows the top senders of email to the organization.
+- Have employees contact the SOC and inform them about such emails or malware.
+- Create alerts of suspicious communication for the C&C.
+Containment
+- Isolate infected workstations.
+- Save event logs.
+- Investigate the events and extract IOCs (indicators of compromise).
+- Check if other computers received the same message.
+- Delete the malicious email from employee inboxes.
+Eradication
+- If a weakness or vulnerability is discovered, patch it.
+- Delete the malware from the computer.
+- Restore the system from a backup, if necessary.
+
+-------------------------------------------------------------------------
+
+A hacker executes a defacement attack on a company's website, whereby the website's contents or appearance is changed.
+Preparation
+- Create a backup of the website.
+- Install WAF/IPS/IDS to identify malicious requests and protect against them.
+- Download dedicated tools that monitor changes in web pages.
+- Create a dashboard that checks for URL request anomalies.
+Identification
+- A monitoring tool alerts that a change occurred.
+- An employee recognizes a change in the website.
+- The dashboard indicates an anomaly in a URL request.
+Containment
+- Create a blacklist of malicious senders and block them.
+- Use logs to identify how the changes were made.
+- Route traffic to failover servers or shut down the production server.
+- Back up the server for forensic purposes.
+Eradication
+- Fix the code responsible for the vulnerability.
+- Block the IP address that perpetrated the attack.
+- Remove the malicious page or script.
+
+----------------------------------------------------------------------------
+
