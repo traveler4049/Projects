@@ -1,0 +1,14 @@
+Objective: Learn how PowerShell can be used to manage an Active Directory.
+
+Mission: Manage a server without a GUI by practicing PowerShell commands associated with Active Directory.
+
+Environment & Tools: VirtualBox - Windows Server 2016 (Server1) and Windows 10 Client
+
+Utilized PowerShell commands to complete the following:
+1) Created an Organization Unit.
+2) Created a new user account and password.
+3) Created a global security group for users in specific department within newly created Organization Unit.
+4) Added user from step 2 into group created in step 3
+5) Added department parameter to user created in step 2
+
+Created a PowerShell script to add domain users via a .csv file.
