@@ -1,0 +1,11 @@
+Objective: Understand how to add users and groups via the GUI and the command line.
+
+Mission: Create several users and add them to groups using both the GUI and commands in CMD.
+
+Environment & Tools: Windows Server 2016, Windows 7.
+
+Adding users and groups with Computer Management Tool:
+Opened Computer Management tool in Windows, navigated to 'Local Users and Groups'>New User. After creating new users, navigated to 'Local Users and Groups'>Groups and created a new group. After creation of new group, opened the new group, entered user name under 'Enter the object names to select'>Check Names>OK>Apply>OK.
+
+Adding users and groups with CMD:
+Opened Command Prompt as Administrator and created user with add command 'net user (name) (password) /add'. Created a group by using add command 'net localgroup (group name) /add'. Migrated new user to the created group by using the command 'net localgroup (group name) /add'. Verified group and that group includes newly added user by running command 'net localgroup (group name)'.
