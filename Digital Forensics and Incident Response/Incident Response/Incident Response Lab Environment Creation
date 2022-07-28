@@ -1,0 +1,10 @@
+Objective: Prepare a Windows 10 machine containing FlareVM and Sysinternals to be used
+Mission: Download a Windows 10 image containing FlareVM and Sysinternals, Import the image into your virtualization software, Launch the VM and log in with the credentials
+
+
+Resources:
+Windows 10 Student (VirtualBox) OVA or Windows 10 x64-Flare (all files)
+• Sysinternals tools (located in C:\tools)
+• CLI tools
+o ExifTool
+o md5deep (includes MD5, SHA-1, and SHA-256)
