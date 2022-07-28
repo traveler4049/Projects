@@ -1,0 +1,43 @@
+Objective: Understand how browsing history can be identified and what allows it to be located. Become familiar with USBDeview by identifying USB connection history
+Mission: Browse to a website in the regular and private modes to view its impact on DNS cache, and examine the USB device connection history using USBDeview.
+
+Resources:
+Environment & Tools: VirtualBox - Windows 10, Microsoft Edge, Firefox, Nirlauncher
+Files: Firefox Installer.exe, Caine11.0.iso
+
+*Simulate web browser usage in a physical or virtual Window workstation. Use tools and commands to conduct a forensic review of the web browser usage.
+
+Added a second network adapter to Windows 10 VM and set its type to NAT
+Deployed Windows 10 Machine
+  Browsed to yahoo.com in normal browsing (Microsoft Edge)
+  Browsed to nytimes.com in private mode (Microsoft Edge)
+  Installed Firefox
+  Browsed to duckduckgo.com in normal browsing (Firefox)
+  Browsed to thehackernews.com in private mode (Firefox)
+  
+  Cleared browsing history for Microsoft Edge and Firefox and closed browsers
+  Opened Command line, ipconfig /displaydns > dnscachecontents.txt
+    Reviewed dns cache - was able to view normal and private browsing mode files
+  Ran command ipconfig /flushdns
+  
+*Disable the machine's ability to save recursive DNS cashe by updating the registry
+
+Opened Firefox and browsed to https://viewdns.info/
+  Used reverse IP lookup on thehackernews.com (used to identify additional hosted domains on the same name server
+  Ran ipconfig /flushdns to clear cache
+Opened Microsoft Edge and browsed to yahoo.com
+  ipconfig /displaydns > dnscachecontents1.txt (reviewed large amount of DNS cache - data was related to recursive DNS queries, this is gathered when a DNS server queries other DNS servers)
+
+Win+R and searched for regedit
+  Navigated to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters > Right clicked Parameters key to create new value > Added DWORD titled MaxCachedTtl > Value 0 
+  In command line I entered ipconfig /flushdns to flush the DNS one more time
+  Browsed to yahoo.com
+    In command line I entered ipconfig /displaydns to verify that the records were not displayed after modifying the registry
+    
+    
+*Connect a USB device to the computer and locate its connection history using USBDeview
+
+Connected a USB device to Windows 10 VM
+  Mounted Caine ISO file in the Windows 10 VM.
+    Located NirSoft's USBDeview to identify the history of the connected devices
+      Reviewed history of the usb drive
