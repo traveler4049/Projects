@@ -1,0 +1,7 @@
+Objective: Understand how to install Windows Server 2016 on a virtual machine or computer.
+
+Mission: Install Windows Server 2016 on a virtual machine.
+
+Environment & Tools: Windows Server 2016, Windows 7, and Windows 10.
+
+Deployed 2 Virtual Machines running instances of Windows 2016 Server. Configured Server1 by assigning computer name, static IP address, subnet mask, and disabling firewall on public and private networks. Followed the same procedures as Server1 to create Server2 while assigning different static IP address. Tested network communication between Server1 and Server 2 by running a ping test. Installed and configured Windows 10 VM while assigning the network adapter to 'Internal Network'. Installed and configured Windows 7 VM while assigning the network adapter to 'Internal Network'.
