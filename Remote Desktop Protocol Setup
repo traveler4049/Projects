@@ -1,0 +1,7 @@
+Objective: Understand how to set and work with Microsoft's Remote Desktop Protocol (RDP).
+
+Mission: Establish a remote connection to a computer with a user who has administrative privileges.
+
+Environment & Tools: Windows 7 and Windows 10.
+
+Created Windows 7 Virtual Machine and configured instance to Internal Network. Assigned Windows 7 VM with new computer name, static IP address, subnet mask, and turned Windows Firewall off. Created Windows 10 Virtual Machine and configured instance to Internal Network. Assigned Windows 10 VM with new computer name, static IP address, subnet mask, and turned Windows Firewall off. Verified network communication between the Windows 7 and Windows 10 VM's with ping command. Navigated to 'Remote Settings' and selected 'Allow connections from computers running any version of Remote Desktop'. Added a new user to the Administrators group on Windows 7 VM through CMD with administrative privileges by running commands: 'net user (username) (password) /ADD' and net localgroup administrators (username) /ADD'. Started Windows 10 VM instance and opened Remote Desktop Connection application. Entered IP address of the Windows 7 virtual machine, entered credentials of a created user on Windows 7 to establish connection. Remote connection was established and created a .txt file on the desktop. Safely disconnected by using the Disconnect function, logged into Windows 7 VM, and opened .txt file on the desktop.
