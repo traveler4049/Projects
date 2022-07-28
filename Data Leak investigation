@@ -1,0 +1,9 @@
+Objective: Understand how a hash comparison is performed on investigated files and how data can be extracted from images.
+
+Mission: Recover files from a suspicious USB drive image and prove they were used to steal sensitive data.
+
+Environment & Tools: VirtualBox - Windows 10, PhotoRec, HashMyFiles, ExifTool.
+
+Received a formatted flash drive that was found lying on the ground and was suspected of having been used to leak sensitive documents. Tasked with recovering the data from the drive and finding who owned the drive.
+
+I started a fresh Windows 10 VM that was disconnected from the network and imported the files to the VM. I extracted all data from the raw drive image file using Photorec to extract raw disk image from the .dd file. Utilized HashMyFiles to compare the hash of the original image and the image on the drive, hash's were the same confirming it was a leaked file. I saved exiftool to the leaked evidence folder and extracted the data from the image to identify who the drive belongs to.
