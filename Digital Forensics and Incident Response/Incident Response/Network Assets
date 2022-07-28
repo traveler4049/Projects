@@ -1,0 +1,23 @@
+Objective: Understand how to manage assets and configure relations among them. Experiment with network scanning tools to map, manage, and protect assets.
+Mission: Install and use an asset management application for a better understanding of network assets in an organization.
+
+Resources:
+Environment & Tools: VirtualBox - Windows 10, https://www.lansweeper.com/download/
+
+
+
+
+*Install and configure Lansweeper to get a view of the network.
+
+Configured Windows 10 VM with network adapter set to NAT
+Deployed Windows 10 VM
+  Browsed to https://www.lansweeper.com/download/
+    Installed Lansweeper with its default configurations
+    Activated Lansweeper with trial key
+    Configured Lansweeper to monitor assets for Windows, Linux, and network devices
+    Entered credentials for Windows machine to allow Lansweeper to scan
+      On Lansweeper - navigated to Windows computer that was scanned
+        Clicked config > User info > Last Logon (identified the last logged-in user)
+        Software > Software (Identified what software is installed on the client)
+        Software > Antivirus (Identified if antivirus is enabled on the station)
+    
