@@ -1,0 +1,17 @@
+Objectives: Learn how browser history can be extracted in an investigation using various tools
+Mission: Install Google Chrome, browse to several website, and extract information using NirSoft tools
+
+Resources:
+Environment & Tools: VirtualBox - Windows10
+Files: Caine11.0 iso, NirLauncher.exe, Chrome Browser
+
+
+Deployed Windows 10 VM
+  Installed Chrome
+  Browsed to 3 website (yahoo.com, espn.com, nfl.com)
+  Browsed to Youtube, searched for three random videos
+  Mounted CAINE in the Windows 10 machine and launched NirLauncher
+    Used Quick Filter (Ctrl+Q) to use MyLastSearch (used to recover searches performed in the browser - this did not recover the youtube video search)
+    Using Quick Filter, typed BrowsingHistoryView to investigate and extract the browser histroy. Selected Load Hisotyr items from any time on drop-down menu
+      Was able to view websearch history and youtube searches.
+      
