@@ -1,0 +1,11 @@
+Objective: Learn about the Splunk installation process and how to gather log information from a Windows client.
+
+Mission: Install Splunk Enterprise on Linux, connect, and gather logs from Windows OS using Splunk Universal Forwarder.
+
+Environment & Tools: VirtualBox - Ubuntu Linux VM, Windows 10 VM, pfSense VM
+
+Performed a fresh install of Ubuntu and setup Network Adapter to specified Internal Network and enabled Promiscuous Mode to Allow VMs.
+
+Booted pfSense VM to run in background and started Ubuntu VM. Installed Splunk file through Terminal and started application. Changed retention to only 72 hours of data through terminal command line. Opened Firefox and browsed to URL provided when starting Splunk. Once logged into Splunk, I proceeded to Add Data>Monitor>Files & Directories>Browse>var>log. In terminal, I verified that Splunk is able to view the logs by adding a user and password, returned to the Splunk web interface and clicked apps>Search & Reporting>searched for *testlog*. Splunk provided logs for the new user entry made on Ubuntu. 
+
+I opened a Windows 10 VM instance and installed Splunk Universal Forwarder to Local System. This instance was only configured with Security Logs. I switched back to the Ubuntu instance and noted the IP address of the Ubuntu machine. Back on the Windows 10 instance, I used the Ubuntu IP and port 8089 as the deployment server in Universal Forwarder. The Ubuntu IP and port 9997 were used as the Receiver Indexer in Universal Forwarder. After completion of installation, I proceeded to turn off Windows firewall. Switching back to the Ubuntu machine Splunk web interface, I navigated to settings>Forwarding and Receiving>Configure Receiving>Add New>Listening Port 9997. I clicked on settings>Add Data>Forward>Desktop*->Renamed to PC1>Local Event Logs>add all. To confirm changes I navigated to Apps>Search & Reporting>New Search: sourcetype="wineventlog:security" authentication. Logs were now available from the Windows 10 machine.
