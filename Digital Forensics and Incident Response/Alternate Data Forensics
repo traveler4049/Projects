@@ -1,1 +1,41 @@
+Objective: Learn to work with alternate data streams
+Mission: Create a disk image and uncover the original content from alternate data streams
 
+Resources
+Environment & Tools: VirtualBox - Windows10, Autopsy, FTK Manager
+Files: autopsy-4.18.0-64bit.msi
+
+
+*Create an alternate data stream and use offline analysis tools to locate and recover it
+
+Deployed Windows 10 machine
+  Created text file name first_file with content: This represents the default $DATA steam
+  Opened command prompt and inserted echo "This is the alrtner $DATA steam">first_file.txt:alternate (used to create alternate data steam for the file with different content)
+    Verified alternate data stream with dir /r (used to verify new commit properly stored)
+Created additional file called second_file (opened command with Administrator Priv)
+  Ran command C:\Windows\System32\calc.exe > C:\Users\<user>\Desktop\second_file.txt:alt (opened calculator)
+  Moved "second_file" to different partitioned drive
+Opened FTK Imager to capture image of the drive that "second_file" was moved to (selected image to be physical drive)
+  Selected E01 as image type
+  Filled in Evidence Information
+    Case Number: DFIR-06-L2
+    Evidence Number: 0602
+    Unique Description: ADS Forensics
+    Examiner: Ty
+  Chose Desktop as destination folder and named image filname as "Capture"
+  
+Installed Autopsy on Windows 10 machine
+  Opened Autopsy application to open a new case with the name ADS
+    Case Name: ADS
+    Base Directory: C:\Users\Ty\Desktop\ADS
+    Case Type: Single
+    Case Number: Case06L2
+    Examiner: Ty
+
+Selected Disk image > Browse > located Capture.E01 file, Clicked Deselect All under Configure Ingest Modules (did this to save time)
+  Double-clicked Capture-E01, double-clicked NTSF volume and located the ADS file created
+  Right-clicked ADS file and extracted to view its content using 'type' (extracted to the folder Create for this case in export folder)
+Navigated to the ADS case folder in File Explorer > Export > in top bar of File Explorer, entered cmd.
+  In Command line I entered type second_file.txt_alt.
+  Renamed file extension to .exe
+  Received message that program cannot be run in DOS mode
