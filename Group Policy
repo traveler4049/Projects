@@ -1,0 +1,17 @@
+Objective: Learn to secure an environment and apply policies to users using GPOs.
+
+Mission: Configure group policy objects to secure client machines and prevent unauthorized users from making changes.
+
+Environment & Tools: Windows Server 2016 and Windows 10
+
+Using Server1 and Windows 10 instances from "Installing Windows Server" Project:
+
+Opened Server1 and access Server Manager Dashboard>Tools>Group Policy Management. Expanded Forest: cyber.local>Domains>cyber.local and then right-clicked Sales OU>Create a GPO in this domain, and Link it here. Created new GPO titled "Disabling Control Panel", right-clicked new GPO to and selected Edit. Under Group Policy Management Editor window, navigated to User Configuration>Policies>Administrative Templates>Control Panel. Right-clicked "Prohibit access to Control Panel and PC settings and selected Edit>"Enabled">Apply>OK.
+
+Through Group Policy Management created an additional GPO under Sales OU called "Disable CMD". Right-clicked "Disable CMD" GPO and choose Edit. Navigated to User Configuration>Policies>Administrative Templates>System>Prevent access to the command prompt>Edit>"Enabled">Apply>OK.
+
+Next GPO created under Sales OU is called "Disable Registry Editor". Navigated to User Configuration>Policies>Administrative Templates>System>Prevent access to registry editing tools>Edit>"Enabled">Apply>OK.
+
+Under Group Policy Management, right-clicked cyber.local domain and selected "Create a GPO in this domain, and Link it Here". Created new GPO called "Disable Recycle Bin">Edit>User Configuration>Policies>Administrative Templates>Desktop>Remove Recycle Bin icon from desktop>Edit>"Enabled">Apply>OK.
+
+Logged onto Windows 10 VM with Salesperson1 credentials to verify GPO's were applied. Since I logged in as Salesperson1, I needed to open CMD tool and run command 'gpupdate /force' to force GPO updates. Verified GPO rules were updated to ensure Recycle Bin, CMD Tool, Control Panel, and regedit were all disabled.
