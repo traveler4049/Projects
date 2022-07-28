@@ -1,0 +1,12 @@
+Objective: Learn how to work with settings in Active Directory Users and Computers
+
+Mission: Explore Active Directory Users and Computers
+
+Environment & Tools: Windows Server 2016.
+
+Using Server1 created in "Windows Server Installation" project:
+
+Access Domain Controller, opened Active Directory Users and Computers via the Tools menu. Right-clicked cyber.local>New>Organizational Unit>assigned name as "Sales". Right-clicked cyber.local>New>User>assigned information for Salesperson1, Salesperson2, and Salesperson3. Right-clicked cyber.local>New>Group>assigned Group Name as Sales-GRP. Right-clicked Sales-GRP>Properties>Members>Add. Entered object name 'sales'>Check Names>selected Salesperson1/Salesperson2/Salesperson3.
+
+Created a User Template:
+Created new user account titled Sales-Template in the Sales OU created in the previous steps. Right-clicked Sales-Template user account>Properties>Organization>entered department and company information. Specified user logon hours by accessing Sales-Template user account properties>Account>Logon Hours>Logon Denied for Sunday. Specified Member of tab>Add>Sales-GRP>Check Names>OK. Created Salesperson4 by right-clicking Sales-Template and selecting copy. Viewed properties of Salesperson4 to ensure all data from the template is correctly applied to Salesperson4.
