@@ -1,1 +1,87 @@
+Objective: Use all learned commands to build a security script, while learning how to think outside the box. 
 
+Mission: Design a script that checks for open ports listening on the machine.
+
+
+• Knowledge of hashing. 
+• Practical knowledge of Bash operators and variables. 
+• Practical knowledge of piping. 
+• Knowledge of how to create Crontab tasks. 
+
+
+Environment & Tools: VirtualBox - Debian VM, Bash, Text Editor, Netstat, Cron
+
+
+
+Simulating an ongoing breach in the organization and taking action until developers troubleshoot the attacked website.
+
+Writing a script that checks the listening ports, and notifies when new ports are added to the listening list.
+
+
+
+Logged into terminal as rootuser (command 'su -'). 
+
+I created a file for the script using 'nano CheckPortListen.sh'. 
+  I defined a new variable logfile for the file path /var/log/openPorts (I created this now for the report on open ports I plan to save).
+   
+   # Path to write the logs to
+    logFile="/var/log/openPorts";
+    
+  I then wrote an if-then statement that utilizes netstat and grep to create a new log file in the previous defined /var/log/openPorts path.
+   
+   # If the log does not exist in the current path, create a new log
+    if [[ ! -f $lofFile ]];
+             then netstat -l | grep LISTEN | grep -v unix > $logfile;
+    fi
+    
+  I defined two new variables to use md5 to hash the original log file and current netstat log.
+    
+    # Read the md5
+    orgHash=$ (md5sum -t $logfile | cut -f l -d " ");
+    echo "[+] The original has is: $orgHash";
+    
+    newHas=$(netstat -l | grep LISTEN | grep -v unix | md5sum -t | cut -f l -d " ");
+    echo "[+} The new hash is: $newHash";
+    
+  I wrote an if-then statement that compares the two variables from step 4, and prints whether ot not the list of open ports changed. If the list changed, the if-then statement should also print the current list of open ports.
+    if [[ $orgHash !+ $newHash ]];
+    then
+            echo "[-] There are changes in ports, this is the new port lists: "
+            echo
+            netstat -l | grep LISTEN | grep -v unix;
+    else
+            echo "[+] The port list hasn't changed";
+    fi
+    
+    
+    
+After completing the script I needed to grant the script execute permission
+  chmod +x CheckPortListen.sh
+  
+    Ran the script for the first time to build the baseline
+      ./CheckPortListen.sh
+      
+      
+        Opened a new tab in terminal and created another port listener using nc.
+          nc -lv
+          
+            On the original tab, I executed the script again using ./CheckPortListen.sh
+            
+              The script ran successfully showing the following lines:
+                The original hash is:
+                The new hash is: 
+                The following changes have occured:
+                
+                
+                
+                
+Took the lab a step further by combining Crontab with the script
+
+Installed Crontab tool:
+  apt update
+    apt install cron
+    
+Created a routine process:
+  crontab -e
+    Chose Option 1 (/bin/nano)
+      ****/root/CheckPortListen.sh
