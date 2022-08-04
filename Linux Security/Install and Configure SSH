@@ -1,0 +1,37 @@
+Objective: Understand how to configure a new virtual machine in VirtualBox and how to transfer a file via Secure Copy Protocol (SCP).
+
+Mission: Install the SSH service for remote connection, use Secure Copy Protocol (SCP) to transfer files, and work with the Ubuntu Linux distribution. 
+
+• Practical experience with the APT package manager 
+• Knowledge of networking configuration 
+• Knowledge of SSH commands 
+
+
+Environment & Tools: Virtualbox - Debian, Ubuntu 20.04, SSH
+
+
+
+Part 1:
+Installing SSH and working with SSH and SCP
+Booted Debian and Ubuntu VM's: configured with Bridged Network Adapter.
+  Verified Debiand and Ubuntu VM's received IP addresses by using command 'ip a'
+Working with the Debian VM I opened the terminal and switched to root user by entering 'su -'. To make sure I had the most recent files to pull from I entered the 'apt update' command. Since the Debian machine wasn't configured with SSH, I used the command 'apt install ssh -y' to install SSH. I started the SSH service with 'service ssh start, verified SSH was running and active by using 'service ssh status'
+  
+Part 2:
+File creation and transfer between two VM's using SCP
+In the Ubuntu VM I opened terminal and used the command 'echo "test text" > testFile. In an attempt to transfer this new file from the Ubuntu VM to the Debian VM I used the command 'scp testFile <user>@<ip address>:~/', entered yes when connection request populated and provided password to Debian machine. On the Debian machine I navigated to the home directory in terminal using 'ls' command. 
+
+The transfer was successful and I was able to view the "testFile"
+  
+ 
+ Commands Used:
+ 
+ ip a
+ su -
+ apt update
+ apt install ssh -y
+ service ssh start
+ service ssh status
+ echo "<"text"> > filename
+ scp <filename> <user>@<ip address>:~/
+ ls
